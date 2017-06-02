@@ -14,4 +14,4 @@
     require_once("functions.php");
     
 // Everytime used class
-    $fm = new flassMessages();
+    $fm = new flashMessages();
