@@ -1,5 +1,7 @@
 .chatWindow{
     display:none;
+    animation:showUp;
+    animation-duration:1s;
 }
 .chatWindowClosed, .chatWindowHead, .chatWindowLeave{
     background:#46b7d9;
@@ -20,4 +22,8 @@
 }
 .chatWindow .table{
     margin-bottom:0px;
+}
+@keyframes showUp{
+    from{height:34px;}
+    to{min-height:200px;}
 }

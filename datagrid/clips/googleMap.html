@@ -1,0 +1,20 @@
+<div class="googleMapBox col-xs-12">
+    <div class="googleMapTitle col-xs-12">Navštivte nás!</div>
+    <div id="map" class="googleMap col-xs-12"></div>
+    <script>
+        function initMap() {
+            var uluru = {lat: 50.130048, lng: 14.013256};
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 9,
+              center: uluru
+            });
+            var marker = new google.maps.Marker({
+              position: uluru,
+              map: map
+            });
+          }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAWojnViGWnjOlmEfjtXdrZ2cw32R0oeY&callback=initMap">
+    </script>
+</div>
