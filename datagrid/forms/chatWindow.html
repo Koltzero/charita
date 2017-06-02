@@ -1,0 +1,56 @@
+<div id="chatWindowClosed" class="chatWindowClosed col-xs-2" onclick="openWindow()">
+    <i class="fa fa-envelope" aria-hidden="true"></i>
+    Napište nám!
+</div>
+<div id="chatWindow" class="chatWindow col-xs-2">
+    <div class="row">
+        <div class="chatWindowHead col-xs-10">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            Napište nám!
+        </div>
+        <div class="chatWindowLeave col-xs-2" onclick="closeWindow()">
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </div>
+        <form method="post">
+            <table class="table table-inverse col-xs-12">
+                <tr>
+                    <td class="col-xs-12">
+                        <label class="col-xs-12" for="nickname">Nickname:</label>
+                        <input placeholder="max. 50 znaků" class="col-xs-12 input" type="text" name="nickname" maxlength="50"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="col-xs-12" for="title">Title:</label>
+                        <input placeholder="max. 1000 znaků" class="col-xs-12 input" type="text" name="title" maxlength="100"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="col-xs-12" for="query">Query:</label>
+                        <textarea placeholder="max. 3000 znaků" name="query" maxlength="3000" class="input col-xs-12 resizeable input-sm form-control"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="btn btn-info col-xs-12" name="send" value="Odeslat" onclick="clearInputs()" type="submit"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function openWindow(){
+        document.getElementById("chatWindow").style.display = "block";
+        document.getElementById("chatWindowClosed").style.display = "none";
+    }
+    function closeWindow(){
+        document.getElementById("chatWindow").style.display = "none";
+        document.getElementById("chatWindowClosed").style.display = "block";
+    }
+    function clearInputs(){
+        document.getElementsByClassName("input").value = "";
+    }
+</script>

@@ -1,0 +1,23 @@
+.chatWindow{
+    display:none;
+}
+.chatWindowClosed, .chatWindowHead, .chatWindowLeave{
+    background:#46b7d9;
+    text-align:center;
+    color:white;
+    padding:5px;
+    cursor:pointer;
+}
+.chatWindowLeave{
+    cursor:pointer;
+    color:red;
+}
+.chatWindow, .chatWindowClosed{
+    bottom:0;
+    right:0;
+    position:fixed;
+    z-index:2;
+}
+.chatWindow .table{
+    margin-bottom:0px;
+}

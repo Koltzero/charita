@@ -1,0 +1,4 @@
+.resizeable{
+    resize:vertical;
+    overflow:auto;
+}
