@@ -1,0 +1,27 @@
+<div class="chatWindow col-xs-2">
+    <form method="post">
+        <table class="table table-inverse col-xs-12">
+            <tr>
+                <td class="col-xs-12">
+                    <label class="col-xs-12" for="nickname">Nickname:</label>
+                    <input class="col-xs-12 resizeable" type="text" name="nickname" maxlength="50"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="col-xs-12" for="title">Title:</label>
+                    <input class="col-xs-12 resizeable" type="text" name="title" maxlength="100"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="col-xs-12" for="query">Query:</label>
+                    <input class="col-xs-12 resizeable" type="text" name="query" maxlength="3000"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script type="text/javascript">
+    document.getElementsByClassName("resizeable").style.resize = "both";
+</script>
