@@ -1,4 +1,8 @@
 <?php
+    if(isset($_SERVER["PATH_INFO"]) && $_SERVER["PATH_INFO"] == "/admin"){
+        $new_path = str_replace("/index.php","",$_SERVER["REQUEST_URI"]);
+        header("Location:$new_path/login.php");
+    }
     require_once("init.php");
 ?>
 <!DOCTYPE html>
