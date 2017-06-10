@@ -1,9 +1,13 @@
 <?php
 
 /*
- * There is everything about connecting, used cookies and remember me
+ * There is everything about editation and working with articticles across database
+ * Changing passwords, adding users in administrator mode
+ * Changing global informations as title, email, tel. number, location and much more.
+ * Creating new navigation is in developing
  */
-class editation{
+
+class editation extends flashMessages{
     
     private function loadDibi(){
         $db = new Dibi\Connection([
@@ -16,56 +20,27 @@ class editation{
         return $db;
     }
     
-    public function __construct(){
-        if($this->isLogged() == FALSE){
-            $this->logIn();
-        }
-        else{
-            printf("ready_for_edit");
-            // location : admin/editation
-        }
+    public function render($page){
+        // domovská stránka
+        if($page == "Homepage"){echo"<style>.render{display:none;}</style>";}
+        // editace článků
+        if($page == "Articles"){$this->articles();}
+        // změna hesla
+        if($page == "Account"){$this->account();}
     }
     
-    private function isLogged(){
-        if(isset($_COOKIE["auth_me"]) && $_COOKIE["auth_me"] == "true"){
-            return TRUE;
-        }
-        else{
-            return FALSE;
-        }
-    }
-    
-    private function getLogForm(){
-        require_once("datagrid/forms/logIn.php");
+    // loading all existing articles
+    private function articles(){
         $db = $this->loadDibi();
-        $result = FALSE;
-        if(isset($_POST["send"])){
-            if(isset($_POST["username"]) && isset($_POST["password"])){
-                $username = $_POST["username"];
-                $password = $_POST["password"];
-                if($db->fetch("SELECT * FROM users WHERE username = '$username' AND password = '$password'") == TRUE){
-                    $result = TRUE;
-                }
-            }
+        $articles = $db->fetchAll("SELECT * FROM articles WHERE 1");
+        foreach($articles as $article){
+            printf('<a href="logged.php?page=Articles&article=%s">%s</a>',$article["id"],$article["title"]);
         }
-        return $result;
-    }
-    
-    private function logIn(){
-        $logIn = $this->getLogForm();
-        if($logIn == TRUE){
-            setcookie("auth_me","true",time()+216000);
-            header("refresh:0");
-            $this->isLogged();
+    // load article's ID in URL
+        if(isset($_GET["article"])){
+            $id = $_GET["article"];
+            $searched = $db->fetch("SELECT * FROM articles WHERE id = '$id'");
+            // generate inputs from form for editation
         }
-        else{
-            $this->logInFailure();
-        }
-    }
-    
-    private function logInFailure(){
-        $fm = new flashMessages;
-        $fm->addMessage("Zadali jste špatné údaje, zkuste to prosím znovu!","danger");
-        //$this->logIn();
     }
 }

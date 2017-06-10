@@ -1,0 +1,48 @@
+body{
+    padding-bottom:80px;
+}
+.menu{
+    background:black;
+    min-height:500px;
+}
+.head{
+    background:rgb(230,230,230);
+    padding:15px;
+}
+.fast-bar{
+    margin-top:60px;
+    background:red;
+    min-height:160px;
+}
+.render{
+    margin-top:150px;
+}
+.render-title{
+    font-size:18px;
+    border-bottom:0.5px solid rgb(150,150,150);
+    padding-bottom:10px;
+}
+.alert{
+    margin:0px;
+}
+.article-box{
+    margin-top:5px;
+    background:orange;
+    padding:15px;
+    border-left:3px solid white;
+    text-align:center;
+    font-size:18px;
+    color:white;
+}
+.article-body{
+    margin-top:10px;
+    min-height:150px;
+}
+.article-head{
+    margin-top:10px;
+    text-align:center;
+}
+.nav-item{
+    list-style-type: none;
+    display:inline-block;
+}

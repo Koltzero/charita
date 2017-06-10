@@ -19,11 +19,13 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title></title>
     </head>
-    <body>
+    <body id="body">
         <?php
             $chat = new chatWindow();
             $chat->createWindow();
             $fm->renderMessages();
-        ?>        
+        ?> 
+        
+        
     </body>
 </html>
